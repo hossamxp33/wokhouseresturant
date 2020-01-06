@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.codesroots.androidprojects.wokhouse">
+
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".presentation.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".presentation.mainfragment.departmentdetails.DepartmentDetailActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Department Detail"
+            android:launchMode="singleTop">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.MainActivity"/>
+        </activity>
+
+        <activity android:name=".presentation.mainfragment.homesubcategorypage.SubcatPages"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label=""
+            android:launchMode="singleTop">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.mainfragment.departmentdetails.DepartmentDetailActivity"/>
+        </activity>
+
+        <activity android:name=".presentation.mainfragment.ItemDetail.ItemDetail"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Item Detials"
+            android:launchMode="singleTop">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.mainfragment.homesubcategorypage.SubcatPages"/>
+
+        </activity>
+
+        <activity android:name=".presentation.your_order.Yourorderlist"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Your order"
+            android:launchMode="singleTop">
+
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.mainfragment.itemdetails.ItemDetail"/>
+
+        </activity>
+
+    </application>
+
+</manifest>

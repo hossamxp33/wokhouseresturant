@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout">
+    <data>
+
+        <variable
+            name="data"
+            type="com.codesroots.androidprojects.wokhouse.model.ItemData"/>
+
+
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    >
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1" />
+
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="#80000000"
+        android:padding="10dip"
+        app:centered="true"
+        app:fillColor="#80FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@+id/pager"
+        app:layout_constraintEnd_toEndOf="@+id/pager"
+        app:layout_constraintStart_toStartOf="@+id/pager"
+        app:pageColor="@color/yello"
+        app:snap="false"
+        app:strokeColor="@color/OpacityYello"
+        app:strokeWidth="4dp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/namePrice"
+        android:layout_width="match_parent"
+
+        android:layout_height="60dp"
+        android:background="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pager"
+
+        >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"
+            app:TextHTML="@{data.name}"
+            app:fontFamily="@font/lobster_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{data.price + ` جنيه ` }"
+            android:textColor="#900"
+            android:textSize="15sp"
+            app:fontFamily="@font/lobster_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="#FFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/namePrice">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/decrease"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/minus"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/integer_number"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="16dp"
+                android:text="0"
+                android:inputType="number"
+
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/increase"
+                android:layout_width="31dp"
+                android:layout_height="30dp"
+
+                android:layout_margin="5dp"
+                android:background="@drawable/add"
+                android:text="+" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textdescrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="#FFF"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:text="مكونات المنتج"
+        app:fontFamily="@font/lobster_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/descrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="#FFF"
+        android:padding="10dp"
+        android:textColor="#000000"
+        app:TextHTML="@{data.description}"
+        app:fontFamily="@font/lobster_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textdescrip" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/basketButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_shopping_basket"
+        android:tint="@android:color/white"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/cart_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/basketButton"
+        android:layout_alignRight="@id/basketButton"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/item_count"
+        android:elevation="50dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="lollipop" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
