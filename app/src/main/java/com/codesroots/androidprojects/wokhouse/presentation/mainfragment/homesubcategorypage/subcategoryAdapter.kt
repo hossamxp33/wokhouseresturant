@@ -37,6 +37,8 @@ private  val listItemData:ItemsModel = listitem
     override fun onBindViewHolder(p0: CustomViewHolderss, p1: Int) {
 
         p0.bind(listitem.data!!.get(p1),activity!!)
+
+
     }
 
 

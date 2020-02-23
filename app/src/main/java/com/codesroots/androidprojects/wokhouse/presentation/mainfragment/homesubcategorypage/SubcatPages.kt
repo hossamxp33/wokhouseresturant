@@ -2,18 +2,22 @@ package com.codesroots.androidprojects.wokhouse.presentation.mainfragment.homesu
 
 
 import android.content.Intent
+import android.icu.text.CaseMap
 import android.os.Bundle
+import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codesroots.androidprojects.wokhouse.R
 import com.codesroots.androidprojects.wokhouse.model.ItemsModel
-import com.codesroots.androidprojects.wokhouse.model.Subcategory
-import com.codesroots.androidprojects.wokhouse.presentation.your_order.Yourorderlist
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.subcategory_items.*
 import okhttp3.*
 import java.io.IOException
+import android.widget.RatingBar
+
+
+
 
 class SubcatPages: AppCompatActivity() {
 
@@ -29,6 +33,7 @@ class SubcatPages: AppCompatActivity() {
 
         name = extras!!.getString("name")
         setTitle(name)
+
 
         getItems(value)
         subCategoryRecycle.layoutManager = GridLayoutManager(applicationContext,2)
